@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Journey to AI Agents — James P. Tee</title>
+<meta name="description" content="From Office 97 packaging to Azure AI Foundry — the story behind 25 years designing with and for Microsoft. By James P. Tee, Principal Design Leader.">
+<meta property="og:title" content="My Journey to AI Agents — James P. Tee">
+<meta property="og:description" content="From Office 97 packaging to Azure AI Foundry. The story behind the résumé.">
+<meta property="og:url" content="https://teelinger2002.github.io/journey.html">
+<link rel="canonical" href="https://teelinger2002.github.io/journey.html">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── JOURNEY-SPECIFIC STYLES ──────────────────────────── */
+
+/* Phase strip */
+.phase-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 48px;
+}
+.phase-pill {
+  background: var(--surface);
+  padding: 20px 20px 18px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: background .15s, border-color .15s;
+  user-select: none;
+}
+.phase-pill:hover { background: var(--surface2); }
+.phase-pill.active { border-bottom-color: var(--cyan); background: var(--surface2); }
+.pp-num { font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 6px; }
+.pp-title { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 4px; line-height: 1.3; }
+.pp-period { font-size: 11px; font-weight: 300; color: var(--gray-2); }
+.phase-pill.active .pp-num { color: var(--cyan); }
+.phase-pill.active .pp-title { color: var(--white); }
+
+/* Timeline body */
+:root { --spine: 148px; }
+.timeline-body {
+  position: relative;
+  padding: 0 0 80px var(--spine);
+}
+.timeline-body::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--spine) - 1px);
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border) 3%, var(--border) 97%, transparent);
+}
+
+/* Phase bar */
+.phase-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 56px 0 24px;
+  position: relative;
+}
+.phase-bar-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--gray-3); white-space: nowrap;
+}
+.phase-bar-line { flex: 1; height: 1px; background: var(--border); }
+
+/* Chapter */
+.chapter { position: relative; margin-bottom: 2px; }
+
+.chapter-marker {
+  position: absolute;
+  left: calc(-1 * var(--spine));
+  width: var(--spine);
+  top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 28px;
+  gap: 3px;
+}
+.marker-year {
+  font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--cyan);
+}
+.marker-phase {
+  font-size: 9px; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--gray-3);
+  text-align: right; line-height: 1.5;
+}
+
+/* Dot */
+.chapter-dot {
+  position: absolute;
+  left: -5px;
+  top: 38px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--border);
+  border: 2px solid var(--bg);
+  z-index: 2;
+  transition: background .2s;
+}
+.chapter:hover .chapter-dot { background: var(--cyan); }
+.chapter-dot.major {
+  background: var(--cyan);
+  width: 11px; height: 11px;
+  left: -6px;
+}
+
+/* Card */
+.chapter-card {
+  background: var(--surface);
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  transition: background .2s;
+}
+.chapter-card:hover { background: var(--surface2); }
+.chapter-card.single { grid-template-columns: 1fr; }
+.chapter-card.wide-visual { grid-template-columns: 1fr 1.4fr; }
+
+.cc-kicker {
+  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--cyan); margin-bottom: 10px;
+}
+.cc-title {
+  font-size: 21px; font-weight: 700; color: var(--white);
+  line-height: 1.25; letter-spacing: -.01em; margin-bottom: 8px;
+}
+.cc-body {
+  font-size: 13px; font-weight: 300; color: var(--gray-1);
+  line-height: 1.8; margin-bottom: 18px;
+}
+.cc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.cc-tag {
+  font-size: 10px; font-weight: 500; padding: 4px 10px;
+  border: 1px solid var(--border); color: var(--gray-2); letter-spacing: .04em;
+}
+
+/* Visual */
+.cc-visual {
+  background: var(--surface2);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 200px;
+  position: relative;
+}
+.cc-visual img {
+  width: 100%; height: auto; display: block;
+}
+.cc-visual.contain img {
+  width: auto; max-width: 100%; max-height: 320px;
+  object-fit: contain; margin: 0 auto; display: block; padding: 16px;
+}
+
+/* GIF placeholder */
+.gif-slot {
+  background: #1a1a1a;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  min-height: 260px; gap: 12px;
+  position: relative;
+}
+.gif-slot-frame {
+  border: 1px dashed var(--border);
+  width: 80%; aspect-ratio: 16/9;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 8px;
+}
+.gif-slot-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--cyan);
+}
+.gif-slot-filename {
+  font-size: 12px; font-weight: 400; color: var(--gray-3);
+  font-family: monospace;
+}
+
+/* Multi-image grid */
+.img-grid-3 {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+}
+.img-grid-2 {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 2px;
+}
+.img-grid-2x2 {
+  display: grid; grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(2,1fr); gap: 2px;
+}
+.img-grid-3 img, .img-grid-2 img, .img-grid-2x2 img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* Callout */
+.cc-callout {
+  background: rgba(0,180,216,.06);
+  border-left: 2px solid var(--cyan);
+  padding: 16px 20px;
+  margin-top: 16px;
+  font-size: 13px; font-weight: 400; color: var(--cyan);
+  line-height: 1.7; font-style: italic;
+}
+
+/* Responsive */
+@media(max-width:800px){
+  .phase-strip { grid-template-columns: repeat(2,1fr); }
+  .chapter-card, .chapter-card.wide-visual { grid-template-columns: 1fr; }
+  :root { --spine: 80px; }
+  .marker-year { font-size: 10px; }
+  .marker-phase { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">James P. <span>Tee</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="journey.html" class="active">Journey</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- BACK -->
+  <div style="padding-top:calc(var(--nav-h) + 32px);">
+    <a href="index.html" style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:color .15s"
+       onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--gray-2)'">
+      ← Back to Portfolio
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section style="padding-top:40px; padding-bottom:0;">
+    <p style="font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;">
+      Microsoft · 1997–2025
+    </p>
+    <h1 style="font-size:52px;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--white);margin-bottom:14px;">
+      My Journey<br>to AI Agents.
+    </h1>
+    <div style="height:1px;background:linear-gradient(to right,var(--cyan),transparent);margin-bottom:32px;max-width:600px;"></div>
+    <p style="font-size:15px;font-weight:300;color:var(--gray-1);line-height:1.85;max-width:680px;margin-bottom:40px;">
+      I want to provide a quick overview of the work I did for Microsoft —
+      both as an agency vendor and as a full-time employee. This is the story behind the résumé:
+      how a packaging designer ended up building the UX patterns that define how developers
+      build with AI today.
+    </p>
+    <div style="display:flex;gap:48px;flex-wrap:wrap;padding-bottom:48px;border-bottom:1px solid var(--border);">
+      <div class="mi"><span class="ml">Relationship</span><span class="mv">Agency vendor 1997–2013, FTE 2013–2025</span></div>
+      <div class="mi"><span class="ml">Chapters</span><span class="mv">14 milestones</span></div>
+      <div class="mi"><span class="ml">Arc</span><span class="mv">Packaging → OS → Conversational AI → Agentic Platforms</span></div>
+    </div>
+
+    <!-- PHASE STRIP -->
+    <div class="phase-strip">
+      <div class="phase-pill active" onclick="scrollToPhase('agency')">
+        <div class="pp-num">Phase 01</div>
+        <div class="pp-title">The Agency Years</div>
+        <div class="pp-period">1997–2013 · Hornall Anderson</div>
+      </div>
+      <div class="phase-pill" onclick="scrollToPhase('windows')">
+        <div class="pp-num">Phase 02</div>
+        <div class="pp-title">Windows</div>
+        <div class="pp-period">2013–2016 · Microsoft FTE</div>
+      </div>
+      <div class="phase-pill" onclick="scrollToPhase('cortana')">
+        <div class="pp-num">Phase 03</div>
+        <div class="pp-title">Cortana + CCI</div>
+        <div class="pp-period">2016–2020 · Conversational AI</div>
+      </div>
+      <div class="phase-pill" onclick="scrollToPhase('azure')">
+        <div class="pp-num">Phase 04</div>
+        <div class="pp-title">CogServ + Foundry</div>
+        <div class="pp-period">2020–2025 · Azure AI</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       TIMELINE
+  ════════════════════════════════════════════════ -->
+  <div class="timeline-body">
+
+    <!-- ── PHASE 01: AGENCY YEARS ─────────────────── -->
+    <div class="phase-bar" id="agency">
+      <div class="phase-bar-label">Phase 01 — The Agency Years</div>
+      <div class="phase-bar-line"></div>
+    </div>
+
+    <!-- Ch 1: Office 97 -->
+    <div class="chapter">
+      <div class="chapter-marker">
+        <div class="marker-year">1997</div>
+        <div class="marker-phase">Office 97<br>Packaging</div>
+      </div>
+      <div class="chapter-dot major"></div>
+      <div class="chapter-card">
+        <div>
+          <div class="cc-kicker">Chapter 01 · Hornall Anderson for Microsoft</div>
+          <h2 class="cc-title">The First Thing I Ever Designed for Microsoft</h2>
+          <p class="cc-body">
+            The first thing I ever designed for Microsoft was the identity and packaging
+            system for Office 97. Working as a designer at Hornall Anderson, this was my
+            entry point into the Microsoft ecosystem — and the beginning of a relationship
+            that would define the next 28 years.
+          </p>
+          <div class="cc-tags">
+            <span class="cc-tag">Brand Identity</span>
+            <span class="cc-tag">Packaging System</span>
+            <span class="cc-tag">Agency Work</span>
+          </div>
+        </div>
+        <div class="cc-visual contain" style="background:#ffffff;">
+          <img src="images/journey-office97.png" alt="Microsoft Office 97 packaging system">
+        </div>
+      </div>
+    </div>
+
+    <!-- Ch 2: Clippy + back of box -->
+    <div class="chapter" style="margin-top:2px;">
+      <div class="chapter-marker">
+        <div class="marker-year">1997</div>
+        <div class="marker-phase">First UX +<br>First AI</div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-card">
+        <div>
+          <div class="cc-kicker">Chapter 02 · An Unexpected Introduction</div>
+          <h2 class="cc-title">First Exposure to UX — and to AI, via Clippy</h2>
+          <p class="cc-body">
+            While working on back-of-box designs for the packaging system, I was exposed to
+            UX design for the first time — partnering with Microsoft’s designers to capture
+            screenshots for our layouts.
+          </p>
+          <p class="cc-body">
+            Coincidentally, this would also be my first exposure to machine learning and AI
+            via Clippy. Who knew it would be the harbinger for designs to come.
+          </p>
+          <div class="cc-callout">
+            “Who knew Clippy would be the harbinger for designs to come.”
+          </div>
+          <div class="cc-tags" style="margin-top:16px;">
+            <span class="cc-tag">First UX Exposure</span>
+            <span class="cc-tag">Machine Learning</span>
+            <span class="cc-tag">Clippy / Early AI</span>
+          </div>
+        </div>
+        <div class="cc-visual" style="background:#ffffff;">
+          <img src="images/journey-clippy.png" alt="Office 97 back of box with Clippy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Ch 3: Agency years -->
+    <div class="chapter" style="margin-top:2px;">
+      <div class="chapter-marker">
+        <div class="marker-year">1997–<br>2013</div>
+        <div class="marker-phase">Agency<br>Era</div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-card wide-visual">
+        <div>
+          <div class="cc-kicker">Chapter 03 · The Agency Years</div>
+          <h2 class="cc-title">Designing Pretty Much Everything Except UX</h2>
+          <p class="cc-body">
+            For the next several years I would continue to work on multiple projects for
+            Microsoft — typically 2–3 a year. Identities and packaging systems, brand
+            guidelines, marketing campaigns, and tradeshows.
+          </p>
+          <p class="cc-body">
+            I designed pretty much everything except for UX.
+          </p>
+          <div class="cc-tags">
+            <span class="cc-tag">Brand Systems</span>
+            <span class="cc-tag">Packaging</span>
+            <span class="cc-tag">Marketing Campaigns</span>
+            <span class="cc-tag">Tradeshows</span>
+          </div>
+        </div>
+        <div class="cc-visual">
+          <img src="images/journey-enct-aoe-win7.png" alt="Agency era Microsoft work — Encarta, Age of Empires, Windows 7">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PHASE 02: WINDOWS ──────────────────────── -->
+    <div class="phase-bar" id="windows">
+      <div class="phase-bar-label">Phase 02 — Windows</div>
+      <div class="phase-bar-line"></div>
+    </div>
+
+    <!-- Ch 4: Joins Microsoft -->
+    <div class="chapter">
+      <div class="chapter-marker">
+        <div class="marker-year">2013</div>
+        <div class="marker-phase">Joins<br>Microsoft</div>
+      </div>
+      <div class="chapter-dot major"></div>
+      <div class="chapter-card">
+        <div>
+          <div class="cc-kicker">Chapter 04 · Going Full-Time</div>
+          <h2 class="cc-title">Hired for Brand Thinking. Expected to Learn UX on the Fly.</h2>
+          <p class="cc-body">
+            In 2013 I had the opportunity to join Microsoft full-time. I was hired for my
+            extensive experience designing human-centered Microsoft brands from the customer out.
+          </p>
+          <p class="cc-body">
+            The company was ramping up Windows 10 and wanted a fresh brand perspective applied
+            to product design. In return, I would learn UX design on the fly. I was hired to
+            lead the design direction team — responsible for UI design and motion language
+            for the Windows 10 ecosystem of devices.
+          </p>
+          <div class="cc-tags">
+            <span class="cc-tag">Microsoft FTE</span>
+            <span class="cc-tag">Design Direction</span>
+            <span class="cc-tag">Windows 10</span>
+            <span class="cc-tag">Team Leadership</span>
+          </div>
+        </div>
+        <div class="cc-visual">
+          <img src="images/journey-windows10-laptop.png" alt="Windows 10 on laptop">
+        </div>
+      </div>
+    </div>
+
+    <!-- Ch 5: Windows finishing school -->
+    <div class="chapter" style="margin-top:2px;">
+      <div class="chapter-marker">
+        <div class="marker-year">2013–<br>2016</div>
+        <div class="marker-phase">Windows<br>Platform</div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-card wide-visual">
+        <div>
+          <div class="cc-kicker">Chapter 05 · The Finishing School</div>
+          <h2 class="cc-title">Learning UX at OS Platform Scale</h2>
+          <p class="cc-body">
+            Working on Windows was like my finishing school for UX — and it was a challenge.
+            I learned the ins and outs of UX design at an OS platform level:
+          </p>
+          <ul style="font-size:13px;font-weight:300;color:var(--gray-1);line-height:1.9;padding-left:18px;margin-bottom:18px;">
+            <li>Core UX fundamentals: pixel grids, type ramps, common controls, color, iconography</li>
+            <li>Interaction patterns and heuristic best practices applied to UI patterns</li>
+            <li>Responsive design and productivity app patterns via Universal Windows Programs</li>
+            <li>Accessibility design principles and standards</li>
+          </ul>
+          <div class="cc-tags">
+            <span class="cc-tag">OS Platform UX</span>
+            <span class="cc-tag">Motion Language</span>
+            <span class="cc-tag">Universal Windows Programs</span>
+            <span class="cc-tag">Accessibility</span>
+            <span class="cc-tag">HoloLens</span>
+          </div>
+        </div>
+        <div class="cc-visual">
+          <img src="images/journey-windows10-ecosystem.png" alt="Windows 10 device ecosystem">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PHASE 03: CORTANA + CCI ────────────────── -->
+    <div class="phase-bar" id="cortana">
+      <div class="phase-bar-label">Phase 03 — Cortana + CCI</div>
+      <div class="phase-bar-line"></div>
+    </div>
+
+    <!-- Ch 6: Cortana partnership -->
+    <div class="chapter">
+      <div class="chapter-marker">
+        <div class="marker-year">2015</div>
+        <div class="marker-phase">Cortana<br>Partnership</div>
+      </div>
+      <div class="chapter-dot major"></div>
+      <div class="chapter-card">
+        <div>
+          <div class="cc-kicker">Chapter 06 · First Contact With AI at OS Scale</div>
+          <h2 class="cc-title">Bringing Assistive UX Into the Windows Ecosystem</h2>
+          <p class="cc-body">
+            While working on Windows 10, we partnered with the Cortana team to bring
+            assistive UX into the OS ecosystem. This was my first direct collaboration
+            on an AI product — shaping how an intelligent assistant would integrate
+            with the world’s most widely used operating system.
+          </p>
+          <div class="cc-tags">
+            <span class="cc-tag">AI Assistant</span>
+            <span class="cc-tag">OS Integration</span>
+            <span class="cc-tag">Assistive UX</span>
+          </div>
+        </div>
+        <div class="cc-visual">
+          <img src="images/journey-cortana-os.png" alt="Cortana in Windows 10">
+        </div>
+      </div>
+    </div>
+
+    <!-- Ch 7: Joins Cortana -->
+    <div class="chapter" style="margin-top:2px;">
+      <div class="chapter-marker">
+        <div class="marker-year">2016</div>
+        <div class="marker-phase">Joins<br>Cortana</div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-card">
+        <div>
+          <div class="cc-kicker">Chapter 07 · Smitten by the Machine</div>
+          <h2 class="cc-title">Speech ML, Conversational UX, and Inference-Based Interaction</h2>
+          <p class="cc-body">
+            I was completely smitten by the assistive nature of Cortana — both by the
+            conversational aspect of the UX, and the predictive nature of the technology.
+          </p>
+          <p class="cc-body">
+            After launching Windows 10, I joined the Cortana team as a lead responsible
+            for internal partnerships and maintaining the E2E product narrative and UX
+            guidelines. It was here that I first started working with speech-based machine
+            learning models, conversational UX, and inference-based interaction patterns.
+          </p>
+          <div class="cc-tags">
+            <span class="cc-tag">Conversational UX</span>
+            <span class="cc-tag">Speech ML</span>
+            <span class="cc-tag">Inference-based Interaction</span>
+            <span class="cc-tag">UX Guidelines</span>
+          </div>
+        </div>
+        <div class="cc-visual">
+          <img src="images/journey-cortana-multidevice.png" alt="Cortana on laptop and mobile">
+        </div>
+      </div>
+    </div>
+
+    <!-- Ch 8: CCI / Virtual Agent — GIF slot -->
+    <div class="chapter" style="margin-top:2px;">
+      <div class="chapter-marker">
+        <div class="marker-year">2017</div>
+        <div class="marker-phase">Virtual<br>Agent</div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-card">
+        <div>
+          <div class="cc-kicker">Chapter 08 · CCI / Virtual Agent Platform</div>
+          <h2 class="cc-title">Building the Prototype of What Would Become Copilot Studio</h2>
+          <p class="cc-body">
+            From Cortana, I followed my interest in speech technology and conversational UX
+            to work on a team responsible for productizing new speech capabilities coming
+            out of Microsoft Research.
+          </p>
+          <p class="cc-body">
+            As an IC I led the creation of our Virtual Agent platform — designing pre-LLM
+            customer service agent solutions delivered via a chat-based interface.
+          </p>
+          <div class="cc-tags">
+            <span class="cc-tag">Pre-LLM Chatbot</span>
+            <span class="cc-tag">Virtual Agent</span>
+            <span class="cc-tag">Customer Service UX</span>
+            <span class="cc-tag">IC Lead</span>
+          </div>
+        </div>
+        <!-- GIF placeholder — replace img tag with: <img src="images/cci_animation.gif" alt="CCI Virtual Agent animation"> -->
+        <div class="gif-slot">
+          <div class="gif-slot-frame">
+            <div class="gif-slot-label">Animated GIF</div>
+            <div class="gif-slot-filename">cci_animation.gif</div>
+          </div>
+          <div style="font-size:10px;color:var(--gray-3);text-align:center;">Upload to /images/ folder to activate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ch 9: CCI outcomes -->
+    <div class="chapter" style="margin-top:2px;">
+      <div class="chapter-marker">
+        <div class="marker-year">2017–<br>2020</div>
+        <div class="marker-phase">CCI<br>Outcomes</div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-card wide-visual">
+        <div>
+          <div class="cc-kicker">Chapter 09 · Multi-modal + Evolves to Copilot Studio</div>
+          <h2 class="cc-title">Fundamental Patterns That Trained the GenAI Chat UX We Use Today</h2>
+          <p class="cc-body">
+            We developed fundamental pre-LLM conversational UX patterns and interactions
+            that trained the generative AI chat UX we use today.
+          </p>
+          <p class="cc-body">
+            I was also involved in creating and presenting customer-facing pitch material —
+            including a pitch to Universal Studios in partnership with the HoloLens team,
+            and a Starbucks pitch for a wearable agent device for baristas.
+          </p>
+          <div class="cc-callout">
+            The Virtual Agent platform evolved into today’s Copilot Studio product.
+          </div>
+          <div class="cc-tags" style="margin-top:16px;">
+            <span class="cc-tag">Multi-modal</span>
+            <span class="cc-tag">Conversational Patterns</span>
+            <span class="cc-tag">HoloLens Pitch</span>
+            <span class="cc-tag">Copilot Studio Precursor</span>
+          </div>
+        </div>
+        <div class="cc-visual" style="min-height:280px;">
+          <img src="images/journey-cci-multimodal.png" alt="CCI multi-modal engagements and pitches">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PHASE 04: COGSERV + FOUNDRY ───────────── -->
+    <div class="phase-bar" id="azure">
+      <div class="phase-bar-label">Phase 04 — CogServ + Foundry</div>
+      <div class="phase-bar-line"></div>
+    </div>
+
+    <!-- Ch 10: Lands in Azure / CogServ — GIF slot -->
+    <div class="chapter">
+      <div class="chapter-marker">
+        <div class="marker-year">2020</div>
+        <div class="marker-phase">Azure<br>CogServ</div>
+      </div>
+      <div class="chapter-dot major"></div>
+      <div class="chapter-card">
+        <div>
+          <div class="cc-kicker">Chapter 10 · Azure Cognitive Services</div>
+          <h2 class="cc-title">Following Speech Technology Into Azure</h2>
+          <p class="cc-body">
+            After launching Virtual Agents, I continued to follow my interest in speech-based
+            technology and UX — and eventually landed within Azure, leading the
+            Cognitive Services team.
+          </p>
+          <div class="cc-tags">
+            <span class="cc-tag">Azure</span>
+            <span class="cc-tag">Cognitive Services</span>
+            <span class="cc-tag">Design Manager</span>
+          </div>
+        </div>
+        <!-- GIF placeholder — replace with: <img src="images/cogserv_animation.gif" alt="Cognitive Services animation"> -->
+        <div class="gif-slot">
+          <div class="gif-slot-frame">
+            <div class="gif-slot-label">Animated GIF</div>
+            <div class="gif-slot-filename">cogserv_animation.gif</div>
+          </div>
+          <div style="font-size:10px;color:var(--gray-3);text-align:center;">Upload to /images/ folder to activate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ch 11: Studio UX platform -->
+    <div class="chapter" style="margin-top:2px;">
+      <div class="chapter-marker">
+        <div class="marker-year">2020–<br>2023</div>
+        <div class="marker-phase">Studio<br>UX</div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-card wide-visual">
+        <div>
+          <div class="cc-kicker">Chapter 11 · Unifying the Studio</div>
+          <h2 class="cc-title">26 Experiences. 6 Platforms. One Unified Studio.</h2>
+          <p class="cc-body">
+            I was responsible for UX design on all the multi-modal (speech, natural language,
+            and vision) pre-built AI models, and I led the development of the organization’s
+            Studio UX Platform.
+          </p>
+          <p class="cc-body">
+            The studio platform consolidated all of Azure’s pre-built models into a single
+            service accessed via a unified UX system — making it easy for developers to
+            find, try, customize, and deploy the model they needed.
+          </p>
+          <div class="cc-tags">
+            <span class="cc-tag">Studio UX</span>
+            <span class="cc-tag">Multi-modal AI</span>
+            <span class="cc-tag">Systems Design</span>
+            <span class="cc-tag">NPS +175%</span>
+          </div>
+        </div>
+        <div class="cc-visual">
+          <img src="images/journey-cogserv-studio.png" alt="Cognitive Services Studio UX platform">
+        </div>
+      </div>
+    </div>
+
+    <!-- Ch 12: AI Foundry evolution -->
+    <div class="chapter" style="margin-top:2px;">
+      <div class="chapter-marker">
+        <div class="marker-year">2023</div>
+        <div class="marker-phase">AI Foundry<br>Launch</div>
+      </div>
+      <div class="chapter-dot major"></div>
+      <div class="chapter-card">
+        <div>
+          <div class="cc-kicker">Chapter 12 · The Work Evolves</div>
+          <h2 class="cc-title">Cognitive Services Becomes Azure AI Foundry</h2>
+          <p class="cc-body">
+            And eventually, the work I led on Cognitive Services evolved into the
+            Azure AI Foundry product we have today.
+          </p>
+          <div class="cc-tags">
+            <span class="cc-tag">Azure AI Foundry</span>
+            <span class="cc-tag">Evolution</span>
+            <span class="cc-tag">ai.azure.com</span>
+          </div>
+        </div>
+        <div class="cc-visual">
+          <img src="images/journey-foundry-launch.png" alt="Azure AI Foundry - Build without boundaries">
+        </div>
+      </div>
+    </div>
+
+    <!-- Ch 13: Foundry UX — GIF slot -->
+    <div class="chapter" style="margin-top:2px;">
+      <div class="chapter-marker">
+        <div class="marker-year">2023–<br>2025</div>
+        <div class="marker-phase">Foundry<br>UX</div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-card">
+        <div>
+          <div class="cc-kicker">Chapter 13 · End-to-End UX Ownership</div>
+          <h2 class="cc-title">Three Consecutive Releases. One Cohesive Platform.</h2>
+          <p class="cc-body">
+            On AI Foundry I was responsible for the end-to-end UX experience and leading
+            the development of the Foundry’s UX system. I led end-to-end UX development
+            through 3 consecutive releases — from public preview, to general availability,
+            through the first major revision of the product.
+          </p>
+          <div class="cc-tags">
+            <span class="cc-tag">End-to-end UX</span>
+            <span class="cc-tag">UX System</span>
+            <span class="cc-tag">Public Preview → GA → Revision</span>
+          </div>
+        </div>
+        <!-- GIF placeholder — replace with: <img src="images/foundry_animation.gif" alt="Azure AI Foundry animation"> -->
+        <div class="gif-slot">
+          <div class="gif-slot-frame">
+            <div class="gif-slot-label">Animated GIF</div>
+            <div class="gif-slot-filename">foundry_animation.gif</div>
+          </div>
+          <div style="font-size:10px;color:var(--gray-3);text-align:center;">Upload to /images/ folder to activate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ch 14: Foundry outcomes -->
+    <div class="chapter" style="margin-top:2px;">
+      <div class="chapter-marker">
+        <div class="marker-year">2025</div>
+        <div class="marker-phase">Agent<br>Factory</div>
+      </div>
+      <div class="chapter-dot major"></div>
+      <div class="chapter-card wide-visual">
+        <div>
+          <div class="cc-kicker">Chapter 14 · The Agentic Era</div>
+          <h2 class="cc-title">Model Gardens. Playgrounds. Observability. The Agent Factory.</h2>
+          <p class="cc-body">
+            We evolved the studio system we created for Cognitive Services to include
+            novel AI and agentic-specific UX patterns — model gardens, playgrounds,
+            and observability tooling.
+          </p>
+          <p class="cc-body">
+            Today, Azure AI Foundry has become the agent factory platform for Microsoft.
+          </p>
+          <div class="cc-callout">
+            NPS +287% · Revenue +50% · Users +100% · DSAT −52%
+          </div>
+          <div class="cc-tags" style="margin-top:16px;">
+            <span class="cc-tag">Agentic UX</span>
+            <span class="cc-tag">Model Gardens</span>
+            <span class="cc-tag">Playgrounds</span>
+            <span class="cc-tag">Observability</span>
+            <span class="cc-tag">Agent Factory</span>
+          </div>
+        </div>
+        <div class="cc-visual">
+          <img src="images/journey-foundry-grid.png" alt="Azure AI Foundry — home, project, playground, evaluation">
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /timeline-body -->
+
+  <!-- BOTTOM NAV -->
+  <div style="padding:48px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+    <a href="index.html" style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2);text-decoration:none;transition:color .15s"
+       onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--gray-2)'">
+      ← Back to Portfolio
+    </a>
+    <a href="index.html#work" style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2);text-decoration:none;transition:color .15s"
+       onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--gray-2)'">
+      View Case Studies →
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="fc">© 2026 James P. Tee · All rights reserved</span>
+    <div class="fs"><div class="fsd"></div>Available Now</div>
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+// Phase strip scroll + active state
+function scrollToPhase(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const offset = 60 + 20; // nav height + buffer
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+// Highlight active phase pill on scroll
+const phases = ['agency','windows','cortana','azure'];
+const pills = document.querySelectorAll('.phase-pill');
+
+function updateActivePill() {
+  let current = 'agency';
+  phases.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.getBoundingClientRect().top + window.scrollY - 120) {
+      current = id;
+    }
+  });
+  pills.forEach((pill, i) => {
+    pill.classList.toggle('active', phases[i] === current);
+  });
+}
+
+window.addEventListener('scroll', updateActivePill, { passive: true });
+updateActivePill();
+</script>
+
+</body>
+</html>
