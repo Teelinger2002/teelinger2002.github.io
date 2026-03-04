@@ -217,6 +217,15 @@
   aspect-ratio: 16/10;
   min-height: unset;
 }
+/* When text column is taller than image, stretch visual to match */
+.chapter-card {
+  align-items: stretch;
+}
+.chapter-card .cc-visual {
+  aspect-ratio: unset;
+  min-height: 240px;
+  height: 100%;
+}
 
 /* ── LIGHTBOX + IMAGE HOVER ────────────────────────────── */
 .cc-visual {
@@ -652,7 +661,7 @@
         <div class="cc-visual" style="background:#000;padding:0;position:relative;overflow:hidden;">
           <img src="images/journey-cci-device.png" alt="Phone device frame" style="width:100%;display:block;position:relative;z-index:3;mix-blend-mode:lighten;">
           <img src="images/CCI_animation.gif" alt="CCI Virtual Agent animation"
-               style="position:absolute;left:35%;top:13%;width:30%;height:75%;object-fit:cover;z-index:2;">
+               style="position:absolute;left:36.1%;top:15.8%;width:27.4%;height:73.5%;object-fit:cover;z-index:2;">
         </div>
       </div>
     </div>
@@ -724,7 +733,7 @@
         <div class="cc-visual" style="background:#000;padding:0;position:relative;overflow:hidden;">
           <img src="images/journey-laptop-device.png" alt="Laptop device frame" style="width:100%;display:block;position:relative;z-index:3;mix-blend-mode:lighten;">
           <img src="images/cogserv_animation.gif" alt="Azure Cognitive Services animation"
-               style="position:absolute;left:16%;top:11%;width:68%;height:47%;object-fit:cover;z-index:2;">
+               style="position:absolute;left:16.3%;top:14.3%;width:65.5%;height:59.1%;object-fit:cover;z-index:2;">
         </div>
       </div>
     </div>
@@ -816,7 +825,7 @@
         <div class="cc-visual" style="background:#000;padding:0;position:relative;overflow:hidden;">
           <img src="images/journey-laptop-device.png" alt="Laptop device frame" style="width:100%;display:block;position:relative;z-index:3;mix-blend-mode:lighten;">
           <img src="images/foundry_animation.gif" alt="Azure AI Foundry animation"
-               style="position:absolute;left:16%;top:11%;width:68%;height:47%;object-fit:cover;z-index:2;">
+               style="position:absolute;left:16.3%;top:14.3%;width:65.5%;height:59.1%;object-fit:cover;z-index:2;">
         </div>
       </div>
     </div>
