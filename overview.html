@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James P. Tee — Principal Design Leader</title>
+
+<!-- SEO -->
+<meta name="description" content="James P. Tee is a Principal Design Leader with 25+ years spanning AI and agentic UX, enterprise product design, and brand systems. Former Microsoft Azure AI Foundry, Windows, Cortana. Based in Seattle, WA.">
+<meta name="author" content="James P. Tee">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="design leader, principal designer, director of design, AI UX, agentic design, enterprise product design, Azure AI Foundry, Microsoft, Seattle">
+
+<!-- Open Graph (LinkedIn, Slack, iMessage previews) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jamestee01.github.io">
+<meta property="og:title" content="James P. Tee — Principal Design Leader">
+<meta property="og:description" content="25+ years spanning AI and agentic platforms, enterprise product design, and brand systems. Azure AI Foundry · Windows · Hornall Anderson. Based in Seattle.">
+<meta property="og:image" content="https://jamestee01.github.io/og-image.png">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="James P. Tee — Principal Design Leader">
+<meta name="twitter:description" content="25+ years spanning AI and agentic platforms, enterprise product design, and brand systems. Azure AI Foundry · Windows · Hornall Anderson.">
+<meta name="twitter:image" content="https://jamestee01.github.io/og-image.png">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://jamestee01.github.io">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #2d2d2d;
+    --surface:   #333333;
+    --surface2:  #3a3a3a;
+    --border:    #444444;
+    --cyan:      #00b4d8;
+    --cyan-dim:  #007a99;
+    --white:     #ffffff;
+    --gray-1:    #cccccc;
+    --gray-2:    #888888;
+    --gray-3:    #555555;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes expandWidth {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+
+  .fade-1 { animation: fadeUp 0.6s ease 0.05s both; }
+  .fade-2 { animation: fadeUp 0.6s ease 0.15s both; }
+  .fade-3 { animation: fadeUp 0.6s ease 0.25s both; }
+  .fade-4 { animation: fadeUp 0.6s ease 0.35s both; }
+  .fade-5 { animation: fadeUp 0.6s ease 0.5s both; }
+  .fade-6 { animation: fadeUp 0.6s ease 0.65s both; }
+  .fade-7 { animation: fadeUp 0.6s ease 0.8s both; }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 60px;
+  }
+
+  /* ── HEADER ── */
+  .header-kicker {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 20px;
+  }
+
+  .header-name {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .header-title {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--gray-1);
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+
+  .header-rule {
+    height: 1px;
+    background: linear-gradient(to right, var(--cyan), transparent);
+    margin-bottom: 40px;
+    animation: expandWidth 1s ease 0.2s both;
+  }
+
+  .header-pitch {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--gray-1);
+    line-height: 1.9;
+    max-width: 780px;
+    margin-bottom: 48px;
+  }
+
+  .header-pitch strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .header-pitch .cyan {
+    color: var(--cyan);
+    font-weight: 400;
+  }
+
+  /* ── META ROW ── */
+  .meta-row {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    padding-bottom: 56px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 64px;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+  }
+
+  .meta-value {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gray-1);
+  }
+
+  .meta-value a {
+    color: var(--cyan);
+    text-decoration: none;
+  }
+
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    animation: pulse 2.2s ease infinite;
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION STRUCTURE ── */
+  .section {
+    margin-bottom: 64px;
+  }
+
+  /* Two-column layout matching portfolio */
+  .two-col {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .two-col-left {
+    padding-top: 4px;
+  }
+
+  .section-kicker {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 10px;
+  }
+
+  .section-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .section-sub {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray-2);
+    margin-top: 10px;
+    line-height: 1.7;
+  }
+
+  /* ── METRICS ── */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+  }
+
+  .metric-box {
+    background: var(--surface);
+    padding: 28px 20px 24px;
+    text-align: center;
+  }
+
+  .metric-num {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--cyan);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .metric-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+    line-height: 1.5;
+  }
+
+  /* ── PILLARS ── */
+  .pillars-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .pillar {
+    background: var(--surface);
+    padding: 32px 28px;
+    transition: background 0.2s;
+  }
+
+  .pillar:hover { background: var(--surface2); }
+
+  .pillar-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .pillar-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .pillar-body {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray-1);
+    line-height: 1.75;
+  }
+
+  /* ── CAREER ARC ── */
+  .arc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .arc-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  .arc-item:first-child { border-top: 1px solid var(--border); }
+
+  .arc-year {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-3);
+    letter-spacing: 0.05em;
+    padding-top: 3px;
+  }
+
+  .arc-co {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 4px;
+  }
+
+  .arc-role {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .arc-note {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray-1);
+    line-height: 1.7;
+  }
+
+  /* ── EXPERTISE ── */
+  .expertise-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .expertise-col {
+    background: var(--surface);
+    padding: 28px 28px 32px;
+  }
+
+  .expertise-col-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .expertise-col-label.secondary {
+    color: var(--gray-2);
+  }
+
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 12px;
+    background: var(--bg);
+    color: var(--gray-1);
+    letter-spacing: 0.04em;
+    transition: color 0.15s, border-color 0.15s;
+    border: 1px solid var(--border);
+    cursor: default;
+  }
+
+  .tag:hover { color: var(--cyan); border-color: var(--cyan-dim); }
+
+  .tag.cyan {
+    color: var(--cyan);
+    border-color: var(--cyan-dim);
+    background: rgba(0, 180, 216, 0.06);
+  }
+
+  .tag.cyan:hover { background: rgba(0, 180, 216, 0.12); }
+
+  /* ── DOMAINS ── */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .domain-item {
+    background: var(--surface);
+    padding: 22px 24px;
+    transition: background 0.2s;
+  }
+
+  .domain-item:hover { background: var(--surface2); }
+
+  .domain-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 5px;
+  }
+
+  .domain-detail {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--gray-2);
+    line-height: 1.6;
+  }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+
+  .philosophy-item {
+    background: var(--surface);
+    padding: 28px 28px;
+    border-left: 2px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .philosophy-item:hover {
+    border-left-color: var(--cyan);
+    background: var(--surface2);
+  }
+
+  .philosophy-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 10px;
+  }
+
+  .philosophy-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .philosophy-body {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray-1);
+    line-height: 1.75;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 64px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .footer-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-3);
+  }
+
+  .footer-value {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray-2);
+  }
+
+  .footer-value a {
+    color: var(--cyan);
+    text-decoration: none;
+  }
+
+  @media (max-width: 760px) {
+    .page { padding: 40px 24px; }
+    .two-col { grid-template-columns: 1fr; gap: 16px; }
+    .pillars-row { grid-template-columns: 1fr; }
+    .metrics-row { grid-template-columns: repeat(3, 1fr); }
+    .expertise-cols { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr 1fr; }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .header-name { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <div class="fade-1">
+    <p class="header-kicker">Design Leader · Seattle, WA</p>
+    <h1 class="header-name">James P. Tee</h1>
+    <p class="header-title">Principal Product Designer &nbsp;·&nbsp; Director of Design</p>
+    <div class="header-rule"></div>
+    <p class="header-pitch">
+      A design leader who spans <strong>director to principal band</strong> — equally effective setting organizational direction and getting hands-on with the work.
+      25+ years designing across <span class="cyan">AI and agentic platforms</span>, enterprise product systems, brand architecture, and consumer go-to-market.
+      Built and led design teams at <strong>Microsoft for 12 years</strong>, grew a <strong>150-person creative agency</strong> as Creative Director, and shipped
+      products used by millions — from <strong>Windows 10</strong> to <strong>Azure AI Foundry</strong>. The rare combination of
+      <span class="cyan">deep AI/UX expertise</span>, enterprise product rigor, and brand-to-commerce fluency across healthcare, technology, and consumer industries.
+    </p>
+  </div>
+
+  <div class="meta-row fade-2">
+    <div class="meta-item">
+      <span class="meta-label">Location</span>
+      <span class="meta-value">Seattle, WA</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Experience</span>
+      <span class="meta-value">25+ years</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Last Role</span>
+      <span class="meta-value">Principal Design Manager, Azure AI Foundry</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Email</span>
+      <span class="meta-value"><a href="/cdn-cgi/l/email-protection#89fdecece5e0e7eeecfbc9eee4e8e0e5a7eae6e4"><span class="__cf_email__" data-cfemail="9eeafbfbf2f7f0f9fbecdef9f3fff7f2b0fdf1f3">[email&#160;protected]</span></a></span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Phone</span>
+      <span class="meta-value">206-819-9033</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">LinkedIn</span>
+      <span class="meta-value"><a href="https://linkedin.com/in/jamestee01" target="_blank">jamestee01</a></span>
+    </div>
+    <div class="meta-item" style="margin-left:auto; justify-content: flex-end;">
+      <div class="status"><div class="status-dot"></div>Available Now</div>
+    </div>
+  </div>
+
+  <!-- ── THREE PILLARS ── -->
+  <div class="section fade-3">
+    <div class="two-col" style="margin-bottom:24px;">
+      <div class="two-col-left">
+        <p class="section-kicker">Unique combination</p>
+        <h2 class="section-heading">Three disciplines.<br>One career.</h2>
+        <p class="section-sub">Most designers pick a lane. I've built deep expertise across three that rarely intersect at the same level of seniority.</p>
+      </div>
+      <div></div>
+    </div>
+    <div class="pillars-row">
+      <div class="pillar">
+        <span class="pillar-num">01 — AI + Agentic UX</span>
+        <div class="pillar-title">The full arc of AI design</div>
+        <p class="pillar-body">Pre-LLM conversational bots → Cortana → multi-modal Azure AI → agentic platforms. Designed the UX patterns that define how developers build with AI today, including model gardens, playgrounds, and observability tooling at Azure AI Foundry.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num" style="color: var(--gray-2)">02 — Enterprise Product</span>
+        <div class="pillar-title">Systems at platform scale</div>
+        <p class="pillar-body">12 years at Microsoft across Windows 10, Cortana, Azure Cognitive Services, and Azure AI Foundry. Led 12–14 person teams. Shipped design systems for expert users across OS, developer tools, and healthcare technology platforms.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num" style="color: var(--gray-2)">03 — Brand + GTM</span>
+        <div class="pillar-title">Creative Director depth</div>
+        <p class="pillar-body">13 years as Creative Director at Hornall Anderson. Built agency from 55 to 150+. Deep expertise in brand systems, packaging, retail, physical environments, healthcare, and go-to-market strategy at Fortune 500 scale.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── METRICS ── -->
+  <div class="section fade-3">
+    <div class="two-col" style="margin-bottom:24px;">
+      <div class="two-col-left">
+        <p class="section-kicker">Business outcomes</p>
+        <h2 class="section-heading">Azure AI Foundry</h2>
+        <p class="section-sub">12–14 person team. 3 consecutive major releases. 2 years.</p>
+      </div>
+      <div></div>
+    </div>
+    <div class="metrics-row">
+      <div class="metric-box">
+        <span class="metric-num">+287%</span>
+        <span class="metric-label">NPS<br>−8 → +15</span>
+      </div>
+      <div class="metric-box">
+        <span class="metric-num">+50%</span>
+        <span class="metric-label">Revenue<br>Growth</span>
+      </div>
+      <div class="metric-box">
+        <span class="metric-num">+100%</span>
+        <span class="metric-label">User<br>Growth</span>
+      </div>
+      <div class="metric-box">
+        <span class="metric-num">+20%</span>
+        <span class="metric-label">CSAT<br>Increase</span>
+      </div>
+      <div class="metric-box">
+        <span class="metric-num">−52%</span>
+        <span class="metric-label">DSAT<br>Reduction</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CAREER ARC ── -->
+  <div class="section fade-4">
+    <div class="two-col" style="margin-bottom:32px;">
+      <div class="two-col-left">
+        <p class="section-kicker">Career arc</p>
+        <h2 class="section-heading">Following the frontier.</h2>
+        <p class="section-sub">Every move followed a design challenge I hadn't solved yet.</p>
+      </div>
+      <div></div>
+    </div>
+    <div class="arc-list">
+      <div class="arc-item">
+        <div class="arc-year">2023–2025</div>
+        <div>
+          <div class="arc-co">Microsoft · Azure AI Foundry</div>
+          <div class="arc-role">Principal Design Manager</div>
+          <div class="arc-note">Launched ai.azure.com — Microsoft's agentic developer platform. Led 12–14 person team through public preview, general availability, and first major revision. Built novel AI UX patterns: model gardens, playgrounds, fine-tuning, observability tooling. NPS +287%, revenue +50%, users +100%.</div>
+        </div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-year">2020–2023</div>
+        <div>
+          <div class="arc-co">Microsoft · Azure Cognitive Services</div>
+          <div class="arc-role">Principal Design Manager</div>
+          <div class="arc-note">Consolidated 26+ fragmented AI product experiences across 6 platforms into a unified Studio UX system. Led 7–9 person team. 85% product footprint reduction. NPS +175%, revenue +25%, users +50%.</div>
+        </div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-year">2017–2020</div>
+        <div>
+          <div class="arc-co">Microsoft · CCI + Speech + Cortana</div>
+          <div class="arc-role">Principal Design Lead (IC + Manager)</div>
+          <div class="arc-note">Built pre-LLM Virtual Agent platform for enterprise customer service — the product that evolved into Copilot Studio. Designed multi-modal speech developer tools. Led conversational UX guidelines for Cortana 1st/3rd party ecosystem.</div>
+        </div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-year">2014–2017</div>
+        <div>
+          <div class="arc-co">Microsoft · Windows</div>
+          <div class="arc-role">Design Direction Team Manager</div>
+          <div class="arc-note">Led UI design and motion language for the Windows 10 ecosystem across PC, tablet, phone, and HoloLens. 10–14 designers. First deep UX immersion — OS-level design systems at global scale.</div>
+        </div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-year">2000–2013</div>
+        <div>
+          <div class="arc-co">Hornall Anderson Design Works</div>
+          <div class="arc-role">Creative Director</div>
+          <div class="arc-note">Grew Seattle agency from 55 to 150+ employees, adding a London office. Built healthcare practice to $1.5M/yr. Managed T-Mobile account at $1M/yr. Key clients: Microsoft, T-Mobile, Starbucks, McKesson, Amgen, 3M, Hershey, Coca-Cola, LVMH, Nestlé.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── EXPERTISE ── -->
+  <div class="section fade-5">
+    <div class="two-col" style="margin-bottom:24px;">
+      <div class="two-col-left">
+        <p class="section-kicker">Areas of expertise</p>
+        <h2 class="section-heading">Deep where it matters.</h2>
+      </div>
+      <div></div>
+    </div>
+    <div class="expertise-cols">
+      <div class="expertise-col">
+        <div class="expertise-col-label">AI + Agentic Design</div>
+        <div class="tag-cloud">
+          <span class="tag cyan">Agentic UX Patterns</span>
+          <span class="tag cyan">Model Gardens</span>
+          <span class="tag cyan">AI Playgrounds</span>
+          <span class="tag cyan">Observability Tooling</span>
+          <span class="tag cyan">Conversational UX</span>
+          <span class="tag cyan">Pre-LLM Chatbots</span>
+          <span class="tag cyan">Multi-modal AI</span>
+          <span class="tag cyan">Human Agency Design</span>
+          <span class="tag cyan">Developer Tools UX</span>
+          <span class="tag cyan">Inference-based Interaction</span>
+          <span class="tag cyan">Speed-to-Prototype Loops</span>
+          <span class="tag cyan">Shape of AI Framework</span>
+        </div>
+      </div>
+      <div class="expertise-col">
+        <div class="expertise-col-label secondary">Design Disciplines + Leadership</div>
+        <div class="tag-cloud">
+          <span class="tag">Enterprise Product Design</span>
+          <span class="tag">Design Systems</span>
+          <span class="tag">North Star Visioning</span>
+          <span class="tag">Crawl-Walk-Run Roadmaps</span>
+          <span class="tag">Practice Building</span>
+          <span class="tag">IC + People Management</span>
+          <span class="tag">Brand Architecture</span>
+          <span class="tag">Consumer Packaging</span>
+          <span class="tag">Retail + Shelf Design</span>
+          <span class="tag">Physical Space Design</span>
+          <span class="tag">Motion + Interaction</span>
+          <span class="tag">GTM Strategy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DOMAIN BREADTH ── -->
+  <div class="section fade-5">
+    <div class="two-col" style="margin-bottom:24px;">
+      <div class="two-col-left">
+        <p class="section-kicker">Domain experience</p>
+        <h2 class="section-heading">Broad by design.</h2>
+        <p class="section-sub">Fast domain learning is a repeatable pattern — brand → OS → AI → healthcare, each time delivering at the frontier of the new domain.</p>
+      </div>
+      <div></div>
+    </div>
+    <div class="domain-grid">
+      <div class="domain-item">
+        <div class="domain-title">AI + Developer Platforms</div>
+        <div class="domain-detail">Azure AI Foundry · Cognitive Services · Cortana · Virtual Agent / Copilot Studio precursor</div>
+      </div>
+      <div class="domain-item">
+        <div class="domain-title">Healthcare + Life Sciences</div>
+        <div class="domain-detail">McKesson EMR/PIMS · Pacific Dental Services · Amgen · Pfizer · Sanofi · Bristol-Myers Squibb · J&J</div>
+      </div>
+      <div class="domain-item">
+        <div class="domain-title">OS + Platform UX</div>
+        <div class="domain-detail">Windows 10 design language · PC, tablet, phone, HoloLens · Universal Windows Programs</div>
+      </div>
+      <div class="domain-item">
+        <div class="domain-title">Consumer + Retail Brands</div>
+        <div class="domain-detail">Starbucks · Coca-Cola · Hershey · Nestlé · Pepsi · Frito-Lay · L'Oréal · LVMH · KFC · Taco Bell</div>
+      </div>
+      <div class="domain-item">
+        <div class="domain-title">Telecom + Technology</div>
+        <div class="domain-detail">T-Mobile · HTC · AT&T · Microsoft (agency + FTE 2000–2025) · Tektronix · Novell</div>
+      </div>
+      <div class="domain-item">
+        <div class="domain-title">Consumer Pet + E-commerce</div>
+        <div class="domain-detail">Blue Dog Bakery — full brand system, now sold on Chewy.com. Retail shelf + consumer behavior design.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHILOSOPHY ── -->
+  <div class="section fade-6">
+    <div class="two-col" style="margin-bottom:24px;">
+      <div class="two-col-left">
+        <p class="section-kicker">Design philosophy</p>
+        <h2 class="section-heading">How I work.</h2>
+      </div>
+      <div></div>
+    </div>
+    <div class="philosophy-grid">
+      <div class="philosophy-item">
+        <div class="philosophy-label">Framework</div>
+        <div class="philosophy-title">Old, New, Borrowed, Blue</div>
+        <p class="philosophy-body">Every design challenge requires balancing legacy equities (old), new capabilities (new), external forces (borrowed), and go-to-market strategy (blue). A framework that applies to brand systems and agentic platforms equally.</p>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-label">Capability</div>
+        <div class="philosophy-title">IC = Manager</div>
+        <p class="philosophy-body">Hire me for one, get the other for free. I cannot lead design without mentoring. I cannot manage a team without getting my hands in the work. Director-level strategy and principal-level execution are not separate modes — they're simultaneous.</p>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-label">Methodology</div>
+        <div class="philosophy-title">North Star + Crawl-Walk-Run</div>
+        <p class="philosophy-body">Vision without roadmap is decoration. I establish where we're going, then break it into foundational investments that build progressively. Each phase is validated before the next begins. Outcomes-first throughout.</p>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-label">AI Principle</div>
+        <div class="philosophy-title">Preserve Human Agency</div>
+        <p class="philosophy-body">AI that excludes humans from meaningful participation in outcomes is a design failure. My charter: preserve the user's ability to demonstrate competence, inject judgment, and maintain psychological ownership — in every AI system I build.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer fade-7">
+    <div class="footer-links">
+      <div class="footer-item">
+        <span class="footer-label">Email</span>
+        <span class="footer-value"><a href="/cdn-cgi/l/email-protection#ed9988888184838a889fad8a808c8481c38e8280"><span class="__cf_email__" data-cfemail="e39786868f8a8d848691a3848e828a8fcd808c8e">[email&#160;protected]</span></a></span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">Phone</span>
+        <span class="footer-value">206-819-9033</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">LinkedIn</span>
+        <span class="footer-value"><a href="https://linkedin.com/in/jamestee01" target="_blank">linkedin.com/in/jamestee01</a></span>
+      </div>
+      <div c
