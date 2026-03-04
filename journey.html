@@ -212,6 +212,14 @@
   .marker-phase { display: none; }
 }
 
+/* ── CONSISTENT VISUAL HEIGHT ──────────────────────────── */
+.cc-visual {
+  min-height: 300px;
+}
+.chapter-card.wide-visual .cc-visual {
+  min-height: 320px;
+}
+
 /* ── LIGHTBOX + IMAGE HOVER ────────────────────────────── */
 .cc-visual {
   cursor: pointer;
@@ -641,7 +649,7 @@
             <span class="cc-tag">IC Lead</span>
           </div>
         </div>
-        <div class="cc-visual" style="background:#000;padding:0;position:relative;overflow:hidden;">
+        <div class="cc-visual" style="background:#000;padding:0;position:relative;overflow:hidden;min-height:300px;">
           <img src="images/journey-cci-device.png" alt="Phone device frame" style="width:100%;display:block;position:relative;z-index:2;">
           <img src="images/CCI_animation.gif" alt="CCI Virtual Agent animation"
                style="position:absolute;left:35%;top:13%;width:30%;height:75%;object-fit:cover;z-index:1;">
@@ -713,7 +721,7 @@
             <span class="cc-tag">Design Manager</span>
           </div>
         </div>
-        <div class="cc-visual" style="background:#000;padding:0;position:relative;overflow:hidden;">
+        <div class="cc-visual" style="background:#000;padding:0;position:relative;overflow:hidden;min-height:300px;">
           <img src="images/journey-laptop-device.png" alt="Laptop device frame" style="width:100%;display:block;position:relative;z-index:2;">
           <img src="images/cogserv_animation.gif" alt="Azure Cognitive Services animation"
                style="position:absolute;left:16%;top:11%;width:68%;height:47%;object-fit:cover;z-index:1;">
@@ -805,7 +813,7 @@
             <span class="cc-tag">Public Preview → GA → Revision</span>
           </div>
         </div>
-        <div class="cc-visual" style="background:#000;padding:0;position:relative;overflow:hidden;">
+        <div class="cc-visual" style="background:#000;padding:0;position:relative;overflow:hidden;min-height:300px;">
           <img src="images/journey-laptop-device.png" alt="Laptop device frame" style="width:100%;display:block;position:relative;z-index:2;">
           <img src="images/foundry_animation.gif" alt="Azure AI Foundry animation"
                style="position:absolute;left:16%;top:11%;width:68%;height:47%;object-fit:cover;z-index:1;">
